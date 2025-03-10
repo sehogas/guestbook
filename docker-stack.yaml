@@ -6,7 +6,7 @@ services:
       - "--providers.docker.exposedbydefault=false"
       - "--entryPoints.websecure.address=:443"
       - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
-      - "--certificatesresolvers.myresolver.acme.email=elliott@zenful.cloud"
+      - "--certificatesresolvers.myresolver.acme.email=shogas@shogasoft.com"
       - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
       - "--entrypoints.web.address=:80"
       - "--entrypoints.web.http.redirections.entrypoint.to=websecure"
@@ -28,7 +28,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.middlewares.guestbook-ratelimit.ratelimit.average=20"
-      - "traefik.http.routers.guestbook.rule=Host(`zenful.cloud`) && !Method(`POST`)"
+      - "traefik.http.routers.guestbook.rule=Host(`shogasoft.com`) && !Method(`POST`)"
       - "traefik.http.services.guestbook.loadbalancer.server.port=8080"
       - "traefik.http.routers.guestbook.entrypoints=websecure"
       - "traefik.http.routers.guestbook.tls.certresolver=myresolver"
@@ -36,12 +36,12 @@ services:
       # Define separate router for POST methods
       - "traefik.http.middlewares.guestbook-ratelimit-post.ratelimit.average=1"
       - "traefik.http.middlewares.guestbook-ratelimit-post.ratelimit.period=1m"
-      - "traefik.http.routers.guestbook-post.rule=Host(`zenful.cloud`) && Method(`POST`)"
+      - "traefik.http.routers.guestbook-post.rule=Host(`shogasoft.com`) && Method(`POST`)"
       - "traefik.http.routers.guestbook-post.middlewares=guestbook-ratelimit-post"
       - "traefik.http.routers.guestbook-post.entrypoints=websecure"
       - "traefik.http.routers.guestbook-post.tls.certresolver=myresolver"
       # Proxy
-      - "traefik.http.routers.proxy.rule=Host(`proxy.dreamsofcode.io`)"
+      - "traefik.http.routers.proxy.rule=Host(`proxy.sehogas`)"
       - "traefik.http.routers.proxy.entrypoints=websecure"
       - "traefik.http.routers.proxy.tls.certresolver=myresolver"
     secrets:
