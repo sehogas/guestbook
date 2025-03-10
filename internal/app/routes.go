@@ -4,7 +4,7 @@ import (
 	"html/template"
 	"net/http"
 
-	"github.com/dreamsofcode-io/guestbook/internal/handler"
+	"github.com/sehogas/guestbook/internal/handler"
 )
 
 func (a *App) loadRoutes(tmpl *template.Template) {

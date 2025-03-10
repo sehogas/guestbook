@@ -10,10 +10,11 @@ import (
 
 	goaway "github.com/TwiN/go-away"
 	"github.com/jackc/pgx/v5/pgxpool"
+
 	// "github.com/x-way/crawlerdetect"
 
-	"github.com/dreamsofcode-io/guestbook/internal/guest"
-	"github.com/dreamsofcode-io/guestbook/internal/repository"
+	"github.com/sehogas/guestbook/internal/guest"
+	"github.com/sehogas/guestbook/internal/repository"
 )
 
 type Guestbook struct {

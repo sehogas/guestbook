@@ -9,7 +9,7 @@
 # https://github.com/docker/awesome-compose
 services:
   server:
-    image: ghcr.io/dreamsofcode-io/guestbook/guestbook
+    image: ghcr.io/sehogas/guestbook/guestbook
     container_name: guestbook
     ports:
       - 8080:8080
